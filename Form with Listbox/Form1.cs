@@ -28,9 +28,6 @@ namespace Form_with_Listbox
             };
         private void Form1_Load(object sender, EventArgs e)
         {
-           
-            //lstbox_User.DataSource = users;
-           // lstbox_User.SelectionMode = SelectionMode.MultiSimple;
             lstbox_User.DisplayMember = "Name";
         }
 
@@ -40,39 +37,48 @@ namespace Form_with_Listbox
             if (btn_Add.Text == "Add")
             {
                 User user = new User();
-                //if (!Regex.IsMatch(txtBox_Email.Text, @"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$"))
-                //{
-                //    MessageBox.Show("Valid Email");
-                //    txtBox_Email.Text = "";
-                //}
+                int check = 0;
+                if (!Regex.IsMatch(txtBox_Email.Text, @"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$"))
+                {
+                    MessageBox.Show("Valid Email");
+                    txtBox_Email.Text = "";
+                }
+                if (dtPicker_BirthDate.Value > DateTime.Now)
+                {
+                    MessageBox.Show("Birthdate is incorrect!!");
+                    ++check;
+                }
                 if (string.IsNullOrWhiteSpace(txtBox_Name.Text) || string.IsNullOrWhiteSpace(txtBox_Surname.Text) ||
                     string.IsNullOrWhiteSpace(txtBox_Email.Text) || string.IsNullOrWhiteSpace(txtBox_Phone.Text))
                 {
-                    MessageBox.Show("Please fill all of the cridentials!!!");
+                    MessageBox.Show("Please fill all of the cridentials!!!" ,"Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else
                 {
-                    user.Name = txtBox_Name.Text;
-                    user.Surname = txtBox_Surname.Text;
-                    user.Email = txtBox_Email.Text;
-                    user.Phone = txtBox_Phone.Text;
-                    user.BirthDate = dtPicker_BirthDate.Value;
-                    lstbox_User.Items.Add(user);
-                    users.Add(user);
+                    if (check == 0)
+                    {
+                        user.Name = txtBox_Name.Text;
+                        user.Surname = txtBox_Surname.Text;
+                        user.Email = txtBox_Email.Text;
+                        user.Phone = txtBox_Phone.Text;
+                        user.BirthDate = dtPicker_BirthDate.Value;
+                        lstbox_User.Items.Add(user);
+                        users.Add(user);
+                    }
                    
                 }
             }
             else if (btn_Add.Text == "Change")
             {
-                MessageBox.Show("Aa");
-                int index = lstbox_User.SelectedIndex;
-                    (lstbox_User.SelectedItem as User).Name = txtBox_Name.Text;
-                    (lstbox_User.SelectedItem as User).Surname = txtBox_Surname.Text;
-                    (lstbox_User.SelectedItem as User).Email = txtBox_Email.Text;
-                    (lstbox_User.SelectedItem as User).Phone = txtBox_Phone.Text;
-                MessageBox.Show(lstbox_User.Items[0].ToString());
+                var changeUSer = lstbox_User.SelectedItem as User;
+                changeUSer.Name = txtBox_Name.Text;
+                changeUSer.Surname = txtBox_Surname.Text;
+                changeUSer.Email = txtBox_Email.Text;
+                changeUSer.Phone = txtBox_Phone.Text;
+                changeUSer.BirthDate = dtPicker_BirthDate.Value;
+                lstbox_User.DisplayMember = "Name";
+                MessageBox.Show("Changed succesfully");
                 btn_Add.Text = "Add";
-               
             }
         }
         
@@ -84,20 +90,8 @@ namespace Form_with_Listbox
             txtBox_Surname.Text = user.Surname;
             txtBox_Email.Text = user.Email;
             txtBox_Phone.Text = user.Phone;
-
-            
+            dtPicker_BirthDate.Value = user.BirthDate;
         }
-
-        ///private void txtBox_Name_MouseClick(object sender, MouseEventArgs e)
-        //{
-
-        //}
-
-        //private void txtBox_Name_Click(object sender, EventArgs e)
-        //{
-        //    btn_Add.Text = "Add";
-        //}
-
         private void btn_Save_Click(object sender, EventArgs e)
         {
             btn_Add.Text = "Add";
@@ -111,6 +105,7 @@ namespace Form_with_Listbox
                 }
                 var fileName = txtBox_FileName.Text + ".json";
                 File.WriteAllText(fileName, JsonConvert.SerializeObject(users, Formatting.Indented));
+                MessageBox.Show("Succesfull saved");
             }
             else
             {
@@ -130,15 +125,33 @@ namespace Form_with_Listbox
                     {
                         lstbox_User.Items.Add(user);
                     }
+                    MessageBox.Show("Succesfully loaded", "Message", MessageBoxButtons.OK, MessageBoxIcon.None);
                 }
                 else
                 {
-                    MessageBox.Show("File is not found");
+                    MessageBox.Show("File is not found", "Message", MessageBoxButtons.OK,MessageBoxIcon.Error);
                 }
             }
             else
             {
-                MessageBox.Show("Please write file name whicg file you want loaded");
+                MessageBox.Show("Please write file name which file you want loaded","Message", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+        }
+
+        private void txtBox_Name_TextChanged(object sender, EventArgs e)
+        {
+
+            if (!Regex.IsMatch(txtBox_Name.Text, @"^[\p{L} \.\-]+$"))
+            {
+                txtBox_Name.Text = "";
+            }
+        }
+        private void txtBox_Surname_TextChanged(object sender, EventArgs e)
+        {
+
+            if (!Regex.IsMatch(txtBox_Surname.Text, @"^[\p{L} \.\-]+$"))
+            {
+                txtBox_Surname.Text = "";
             }
         }
     }

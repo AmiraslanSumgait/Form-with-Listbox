@@ -30,10 +30,10 @@ namespace Form_with_Listbox
         private void InitializeComponent()
         {
             this.groupBox_Form = new Guna.UI.WinForms.GunaGroupBox();
+            this.txtBox_Phone = new System.Windows.Forms.MaskedTextBox();
             this.dtPicker_BirthDate = new Guna.UI.WinForms.GunaDateTimePicker();
             this.btn_Add = new Guna.UI.WinForms.GunaAdvenceButton();
             this.gunaLabel5 = new Guna.UI.WinForms.GunaLabel();
-            this.txtBox_Phone = new Guna.UI.WinForms.GunaLineTextBox();
             this.gunaLabel4 = new Guna.UI.WinForms.GunaLabel();
             this.txtBox_Email = new Guna.UI.WinForms.GunaLineTextBox();
             this.gunaLabel3 = new Guna.UI.WinForms.GunaLabel();
@@ -53,10 +53,10 @@ namespace Form_with_Listbox
             this.groupBox_Form.BackColor = System.Drawing.Color.Transparent;
             this.groupBox_Form.BaseColor = System.Drawing.Color.MediumSlateBlue;
             this.groupBox_Form.BorderColor = System.Drawing.Color.Red;
+            this.groupBox_Form.Controls.Add(this.txtBox_Phone);
             this.groupBox_Form.Controls.Add(this.dtPicker_BirthDate);
             this.groupBox_Form.Controls.Add(this.btn_Add);
             this.groupBox_Form.Controls.Add(this.gunaLabel5);
-            this.groupBox_Form.Controls.Add(this.txtBox_Phone);
             this.groupBox_Form.Controls.Add(this.gunaLabel4);
             this.groupBox_Form.Controls.Add(this.txtBox_Email);
             this.groupBox_Form.Controls.Add(this.gunaLabel3);
@@ -72,6 +72,14 @@ namespace Form_with_Listbox
             this.groupBox_Form.TabIndex = 0;
             this.groupBox_Form.Text = "Form";
             this.groupBox_Form.TextLocation = new System.Drawing.Point(10, 8);
+            // 
+            // txtBox_Phone
+            // 
+            this.txtBox_Phone.Location = new System.Drawing.Point(69, 179);
+            this.txtBox_Phone.Mask = "(999) 000-0000";
+            this.txtBox_Phone.Name = "txtBox_Phone";
+            this.txtBox_Phone.Size = new System.Drawing.Size(216, 29);
+            this.txtBox_Phone.TabIndex = 11;
             // 
             // dtPicker_BirthDate
             // 
@@ -90,7 +98,7 @@ namespace Form_with_Listbox
             this.dtPicker_BirthDate.OnHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
             this.dtPicker_BirthDate.OnHoverForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
             this.dtPicker_BirthDate.OnPressedColor = System.Drawing.Color.Black;
-            this.dtPicker_BirthDate.Size = new System.Drawing.Size(223, 29);
+            this.dtPicker_BirthDate.Size = new System.Drawing.Size(214, 29);
             this.dtPicker_BirthDate.TabIndex = 10;
             this.dtPicker_BirthDate.Text = "Monday, August 2, 2021";
             this.dtPicker_BirthDate.Value = new System.DateTime(2021, 8, 2, 1, 50, 4, 297);
@@ -139,20 +147,6 @@ namespace Form_with_Listbox
             this.gunaLabel5.TabIndex = 9;
             this.gunaLabel5.Text = "BirthDate";
             // 
-            // txtBox_Phone
-            // 
-            this.txtBox_Phone.BackColor = System.Drawing.Color.White;
-            this.txtBox_Phone.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtBox_Phone.FocusedLineColor = System.Drawing.Color.DeepSkyBlue;
-            this.txtBox_Phone.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.txtBox_Phone.LineColor = System.Drawing.Color.Gainsboro;
-            this.txtBox_Phone.Location = new System.Drawing.Point(69, 179);
-            this.txtBox_Phone.Name = "txtBox_Phone";
-            this.txtBox_Phone.PasswordChar = '\0';
-            this.txtBox_Phone.SelectedText = "";
-            this.txtBox_Phone.Size = new System.Drawing.Size(216, 26);
-            this.txtBox_Phone.TabIndex = 8;
-            // 
             // gunaLabel4
             // 
             this.gunaLabel4.AutoSize = true;
@@ -200,6 +194,7 @@ namespace Form_with_Listbox
             this.txtBox_Surname.SelectedText = "";
             this.txtBox_Surname.Size = new System.Drawing.Size(216, 26);
             this.txtBox_Surname.TabIndex = 4;
+            this.txtBox_Surname.TextChanged += new System.EventHandler(this.txtBox_Surname_TextChanged);
             // 
             // gunaLabel2
             // 
@@ -224,6 +219,7 @@ namespace Form_with_Listbox
             this.txtBox_Name.SelectedText = "";
             this.txtBox_Name.Size = new System.Drawing.Size(216, 26);
             this.txtBox_Name.TabIndex = 2;
+            this.txtBox_Name.TextChanged += new System.EventHandler(this.txtBox_Name_TextChanged);
             // 
             // gunaLabel1
             // 
@@ -325,12 +321,14 @@ namespace Form_with_Listbox
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(219)))), ((int)(((byte)(109)))));
-            this.ClientSize = new System.Drawing.Size(847, 503);
+            this.ClientSize = new System.Drawing.Size(747, 448);
             this.Controls.Add(this.btn_Save);
             this.Controls.Add(this.btn_Load);
             this.Controls.Add(this.txtBox_FileName);
             this.Controls.Add(this.lstbox_User);
             this.Controls.Add(this.groupBox_Form);
+            this.MaximumSize = new System.Drawing.Size(763, 487);
+            this.MinimumSize = new System.Drawing.Size(763, 487);
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -349,16 +347,16 @@ namespace Form_with_Listbox
         private Guna.UI.WinForms.GunaLineTextBox txtBox_Surname;
         private Guna.UI.WinForms.GunaLabel gunaLabel2;
         private Guna.UI.WinForms.GunaLabel gunaLabel5;
-        private Guna.UI.WinForms.GunaLineTextBox txtBox_Phone;
         private Guna.UI.WinForms.GunaLabel gunaLabel4;
         private Guna.UI.WinForms.GunaLineTextBox txtBox_Email;
         private Guna.UI.WinForms.GunaLabel gunaLabel3;
         private Guna.UI.WinForms.GunaAdvenceButton btn_Add;
-        private Guna.UI.WinForms.GunaDateTimePicker dtPicker_BirthDate;
         private System.Windows.Forms.ListBox lstbox_User;
         private System.Windows.Forms.TextBox txtBox_FileName;
         private Guna.UI.WinForms.GunaAdvenceButton btn_Load;
         private Guna.UI.WinForms.GunaAdvenceButton btn_Save;
+        private System.Windows.Forms.MaskedTextBox txtBox_Phone;
+        private Guna.UI.WinForms.GunaDateTimePicker dtPicker_BirthDate;
     }
 }
 
