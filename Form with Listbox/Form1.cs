@@ -88,7 +88,7 @@ namespace Form_with_Listbox
             
         }
 
-        //private void txtBox_Name_MouseClick(object sender, MouseEventArgs e)
+        ///private void txtBox_Name_MouseClick(object sender, MouseEventArgs e)
         //{
 
         //}
