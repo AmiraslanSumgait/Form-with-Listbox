@@ -10,3 +10,5 @@ C:\Users\Amiraslan\source\repos\Form with Listbox\Form with Listbox\obj\Debug\Fo
 C:\Users\Amiraslan\source\repos\Form with Listbox\Form with Listbox\obj\Debug\Form with Listbox.csproj.CopyComplete
 C:\Users\Amiraslan\source\repos\Form with Listbox\Form with Listbox\obj\Debug\Form with Listbox.exe
 C:\Users\Amiraslan\source\repos\Form with Listbox\Form with Listbox\obj\Debug\Form with Listbox.pdb
+C:\Users\Amiraslan\source\repos\Form with Listbox\Form with Listbox\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Amiraslan\source\repos\Form with Listbox\Form with Listbox\bin\Debug\Newtonsoft.Json.xml

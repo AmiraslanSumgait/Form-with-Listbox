@@ -29,7 +29,7 @@ namespace Form_with_Listbox
         /// </summary>
         private void InitializeComponent()
         {
-            this.gunaGroupBox1 = new Guna.UI.WinForms.GunaGroupBox();
+            this.groupBox_Form = new Guna.UI.WinForms.GunaGroupBox();
             this.dtPicker_BirthDate = new Guna.UI.WinForms.GunaDateTimePicker();
             this.btn_Add = new Guna.UI.WinForms.GunaAdvenceButton();
             this.gunaLabel5 = new Guna.UI.WinForms.GunaLabel();
@@ -42,36 +42,36 @@ namespace Form_with_Listbox
             this.txtBox_Name = new Guna.UI.WinForms.GunaLineTextBox();
             this.gunaLabel1 = new Guna.UI.WinForms.GunaLabel();
             this.lstbox_User = new System.Windows.Forms.ListBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.gunaAdvenceButton1 = new Guna.UI.WinForms.GunaAdvenceButton();
-            this.gunaAdvenceButton2 = new Guna.UI.WinForms.GunaAdvenceButton();
-            this.gunaGroupBox1.SuspendLayout();
+            this.txtBox_FileName = new System.Windows.Forms.TextBox();
+            this.btn_Load = new Guna.UI.WinForms.GunaAdvenceButton();
+            this.btn_Save = new Guna.UI.WinForms.GunaAdvenceButton();
+            this.groupBox_Form.SuspendLayout();
             this.SuspendLayout();
             // 
-            // gunaGroupBox1
+            // groupBox_Form
             // 
-            this.gunaGroupBox1.BackColor = System.Drawing.Color.Transparent;
-            this.gunaGroupBox1.BaseColor = System.Drawing.Color.MediumSlateBlue;
-            this.gunaGroupBox1.BorderColor = System.Drawing.Color.Red;
-            this.gunaGroupBox1.Controls.Add(this.dtPicker_BirthDate);
-            this.gunaGroupBox1.Controls.Add(this.btn_Add);
-            this.gunaGroupBox1.Controls.Add(this.gunaLabel5);
-            this.gunaGroupBox1.Controls.Add(this.txtBox_Phone);
-            this.gunaGroupBox1.Controls.Add(this.gunaLabel4);
-            this.gunaGroupBox1.Controls.Add(this.txtBox_Email);
-            this.gunaGroupBox1.Controls.Add(this.gunaLabel3);
-            this.gunaGroupBox1.Controls.Add(this.txtBox_Surname);
-            this.gunaGroupBox1.Controls.Add(this.gunaLabel2);
-            this.gunaGroupBox1.Controls.Add(this.txtBox_Name);
-            this.gunaGroupBox1.Controls.Add(this.gunaLabel1);
-            this.gunaGroupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gunaGroupBox1.LineColor = System.Drawing.Color.Honeydew;
-            this.gunaGroupBox1.Location = new System.Drawing.Point(25, 21);
-            this.gunaGroupBox1.Name = "gunaGroupBox1";
-            this.gunaGroupBox1.Size = new System.Drawing.Size(360, 348);
-            this.gunaGroupBox1.TabIndex = 0;
-            this.gunaGroupBox1.Text = "Form";
-            this.gunaGroupBox1.TextLocation = new System.Drawing.Point(10, 8);
+            this.groupBox_Form.BackColor = System.Drawing.Color.Transparent;
+            this.groupBox_Form.BaseColor = System.Drawing.Color.MediumSlateBlue;
+            this.groupBox_Form.BorderColor = System.Drawing.Color.Red;
+            this.groupBox_Form.Controls.Add(this.dtPicker_BirthDate);
+            this.groupBox_Form.Controls.Add(this.btn_Add);
+            this.groupBox_Form.Controls.Add(this.gunaLabel5);
+            this.groupBox_Form.Controls.Add(this.txtBox_Phone);
+            this.groupBox_Form.Controls.Add(this.gunaLabel4);
+            this.groupBox_Form.Controls.Add(this.txtBox_Email);
+            this.groupBox_Form.Controls.Add(this.gunaLabel3);
+            this.groupBox_Form.Controls.Add(this.txtBox_Surname);
+            this.groupBox_Form.Controls.Add(this.gunaLabel2);
+            this.groupBox_Form.Controls.Add(this.txtBox_Name);
+            this.groupBox_Form.Controls.Add(this.gunaLabel1);
+            this.groupBox_Form.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox_Form.LineColor = System.Drawing.Color.Honeydew;
+            this.groupBox_Form.Location = new System.Drawing.Point(25, 21);
+            this.groupBox_Form.Name = "groupBox_Form";
+            this.groupBox_Form.Size = new System.Drawing.Size(360, 348);
+            this.groupBox_Form.TabIndex = 0;
+            this.groupBox_Form.Text = "Form";
+            this.groupBox_Form.TextLocation = new System.Drawing.Point(10, 8);
             // 
             // dtPicker_BirthDate
             // 
@@ -247,76 +247,78 @@ namespace Form_with_Listbox
             this.lstbox_User.TabIndex = 1;
             this.lstbox_User.SelectedIndexChanged += new System.EventHandler(this.lstbox_User_SelectedIndexChanged);
             // 
-            // textBox1
+            // txtBox_FileName
             // 
-            this.textBox1.Location = new System.Drawing.Point(449, 374);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(294, 20);
-            this.textBox1.TabIndex = 2;
+            this.txtBox_FileName.Location = new System.Drawing.Point(449, 374);
+            this.txtBox_FileName.Name = "txtBox_FileName";
+            this.txtBox_FileName.Size = new System.Drawing.Size(294, 20);
+            this.txtBox_FileName.TabIndex = 2;
             // 
-            // gunaAdvenceButton1
+            // btn_Load
             // 
-            this.gunaAdvenceButton1.Animated = true;
-            this.gunaAdvenceButton1.AnimationHoverSpeed = 0.07F;
-            this.gunaAdvenceButton1.AnimationSpeed = 0.03F;
-            this.gunaAdvenceButton1.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(130)))), ((int)(((byte)(127)))));
-            this.gunaAdvenceButton1.BorderColor = System.Drawing.Color.Black;
-            this.gunaAdvenceButton1.CheckedBaseColor = System.Drawing.Color.Gray;
-            this.gunaAdvenceButton1.CheckedBorderColor = System.Drawing.Color.Black;
-            this.gunaAdvenceButton1.CheckedForeColor = System.Drawing.Color.White;
-            this.gunaAdvenceButton1.CheckedImage = null;
-            this.gunaAdvenceButton1.CheckedLineColor = System.Drawing.Color.DimGray;
-            this.gunaAdvenceButton1.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.gunaAdvenceButton1.FocusedColor = System.Drawing.Color.Empty;
-            this.gunaAdvenceButton1.Font = new System.Drawing.Font("Segoe UI Black", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gunaAdvenceButton1.ForeColor = System.Drawing.Color.Black;
-            this.gunaAdvenceButton1.Image = null;
-            this.gunaAdvenceButton1.ImageSize = new System.Drawing.Size(20, 20);
-            this.gunaAdvenceButton1.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(58)))), ((int)(((byte)(170)))));
-            this.gunaAdvenceButton1.Location = new System.Drawing.Point(449, 400);
-            this.gunaAdvenceButton1.Name = "gunaAdvenceButton1";
-            this.gunaAdvenceButton1.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(143)))), ((int)(((byte)(255)))));
-            this.gunaAdvenceButton1.OnHoverBorderColor = System.Drawing.Color.Black;
-            this.gunaAdvenceButton1.OnHoverForeColor = System.Drawing.Color.White;
-            this.gunaAdvenceButton1.OnHoverImage = null;
-            this.gunaAdvenceButton1.OnHoverLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(58)))), ((int)(((byte)(170)))));
-            this.gunaAdvenceButton1.OnPressedColor = System.Drawing.Color.Black;
-            this.gunaAdvenceButton1.Size = new System.Drawing.Size(130, 42);
-            this.gunaAdvenceButton1.TabIndex = 3;
-            this.gunaAdvenceButton1.Text = "Load";
-            this.gunaAdvenceButton1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.btn_Load.Animated = true;
+            this.btn_Load.AnimationHoverSpeed = 0.07F;
+            this.btn_Load.AnimationSpeed = 0.03F;
+            this.btn_Load.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(130)))), ((int)(((byte)(127)))));
+            this.btn_Load.BorderColor = System.Drawing.Color.Black;
+            this.btn_Load.CheckedBaseColor = System.Drawing.Color.Gray;
+            this.btn_Load.CheckedBorderColor = System.Drawing.Color.Black;
+            this.btn_Load.CheckedForeColor = System.Drawing.Color.White;
+            this.btn_Load.CheckedImage = null;
+            this.btn_Load.CheckedLineColor = System.Drawing.Color.DimGray;
+            this.btn_Load.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.btn_Load.FocusedColor = System.Drawing.Color.Empty;
+            this.btn_Load.Font = new System.Drawing.Font("Segoe UI Black", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Load.ForeColor = System.Drawing.Color.Black;
+            this.btn_Load.Image = null;
+            this.btn_Load.ImageSize = new System.Drawing.Size(20, 20);
+            this.btn_Load.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(58)))), ((int)(((byte)(170)))));
+            this.btn_Load.Location = new System.Drawing.Point(449, 400);
+            this.btn_Load.Name = "btn_Load";
+            this.btn_Load.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(143)))), ((int)(((byte)(255)))));
+            this.btn_Load.OnHoverBorderColor = System.Drawing.Color.Black;
+            this.btn_Load.OnHoverForeColor = System.Drawing.Color.White;
+            this.btn_Load.OnHoverImage = null;
+            this.btn_Load.OnHoverLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(58)))), ((int)(((byte)(170)))));
+            this.btn_Load.OnPressedColor = System.Drawing.Color.Black;
+            this.btn_Load.Size = new System.Drawing.Size(130, 42);
+            this.btn_Load.TabIndex = 3;
+            this.btn_Load.Text = "Load";
+            this.btn_Load.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.btn_Load.Click += new System.EventHandler(this.btn_Load_Click);
             // 
-            // gunaAdvenceButton2
+            // btn_Save
             // 
-            this.gunaAdvenceButton2.Animated = true;
-            this.gunaAdvenceButton2.AnimationHoverSpeed = 0.07F;
-            this.gunaAdvenceButton2.AnimationSpeed = 0.03F;
-            this.gunaAdvenceButton2.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(130)))), ((int)(((byte)(127)))));
-            this.gunaAdvenceButton2.BorderColor = System.Drawing.Color.Black;
-            this.gunaAdvenceButton2.CheckedBaseColor = System.Drawing.Color.Gray;
-            this.gunaAdvenceButton2.CheckedBorderColor = System.Drawing.Color.Black;
-            this.gunaAdvenceButton2.CheckedForeColor = System.Drawing.Color.White;
-            this.gunaAdvenceButton2.CheckedImage = null;
-            this.gunaAdvenceButton2.CheckedLineColor = System.Drawing.Color.DimGray;
-            this.gunaAdvenceButton2.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.gunaAdvenceButton2.FocusedColor = System.Drawing.Color.Empty;
-            this.gunaAdvenceButton2.Font = new System.Drawing.Font("Segoe UI Black", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gunaAdvenceButton2.ForeColor = System.Drawing.Color.Black;
-            this.gunaAdvenceButton2.Image = null;
-            this.gunaAdvenceButton2.ImageSize = new System.Drawing.Size(20, 20);
-            this.gunaAdvenceButton2.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(58)))), ((int)(((byte)(170)))));
-            this.gunaAdvenceButton2.Location = new System.Drawing.Point(613, 400);
-            this.gunaAdvenceButton2.Name = "gunaAdvenceButton2";
-            this.gunaAdvenceButton2.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(143)))), ((int)(((byte)(255)))));
-            this.gunaAdvenceButton2.OnHoverBorderColor = System.Drawing.Color.Black;
-            this.gunaAdvenceButton2.OnHoverForeColor = System.Drawing.Color.White;
-            this.gunaAdvenceButton2.OnHoverImage = null;
-            this.gunaAdvenceButton2.OnHoverLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(58)))), ((int)(((byte)(170)))));
-            this.gunaAdvenceButton2.OnPressedColor = System.Drawing.Color.Black;
-            this.gunaAdvenceButton2.Size = new System.Drawing.Size(130, 42);
-            this.gunaAdvenceButton2.TabIndex = 4;
-            this.gunaAdvenceButton2.Text = "Save";
-            this.gunaAdvenceButton2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.btn_Save.Animated = true;
+            this.btn_Save.AnimationHoverSpeed = 0.07F;
+            this.btn_Save.AnimationSpeed = 0.03F;
+            this.btn_Save.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(130)))), ((int)(((byte)(127)))));
+            this.btn_Save.BorderColor = System.Drawing.Color.Black;
+            this.btn_Save.CheckedBaseColor = System.Drawing.Color.Gray;
+            this.btn_Save.CheckedBorderColor = System.Drawing.Color.Black;
+            this.btn_Save.CheckedForeColor = System.Drawing.Color.White;
+            this.btn_Save.CheckedImage = null;
+            this.btn_Save.CheckedLineColor = System.Drawing.Color.DimGray;
+            this.btn_Save.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.btn_Save.FocusedColor = System.Drawing.Color.Empty;
+            this.btn_Save.Font = new System.Drawing.Font("Segoe UI Black", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Save.ForeColor = System.Drawing.Color.Black;
+            this.btn_Save.Image = null;
+            this.btn_Save.ImageSize = new System.Drawing.Size(20, 20);
+            this.btn_Save.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(58)))), ((int)(((byte)(170)))));
+            this.btn_Save.Location = new System.Drawing.Point(613, 400);
+            this.btn_Save.Name = "btn_Save";
+            this.btn_Save.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(143)))), ((int)(((byte)(255)))));
+            this.btn_Save.OnHoverBorderColor = System.Drawing.Color.Black;
+            this.btn_Save.OnHoverForeColor = System.Drawing.Color.White;
+            this.btn_Save.OnHoverImage = null;
+            this.btn_Save.OnHoverLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(58)))), ((int)(((byte)(170)))));
+            this.btn_Save.OnPressedColor = System.Drawing.Color.Black;
+            this.btn_Save.Size = new System.Drawing.Size(130, 42);
+            this.btn_Save.TabIndex = 4;
+            this.btn_Save.Text = "Save";
+            this.btn_Save.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.btn_Save.Click += new System.EventHandler(this.btn_Save_Click);
             // 
             // Form1
             // 
@@ -324,16 +326,16 @@ namespace Form_with_Listbox
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(219)))), ((int)(((byte)(109)))));
             this.ClientSize = new System.Drawing.Size(847, 503);
-            this.Controls.Add(this.gunaAdvenceButton2);
-            this.Controls.Add(this.gunaAdvenceButton1);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.btn_Save);
+            this.Controls.Add(this.btn_Load);
+            this.Controls.Add(this.txtBox_FileName);
             this.Controls.Add(this.lstbox_User);
-            this.Controls.Add(this.gunaGroupBox1);
+            this.Controls.Add(this.groupBox_Form);
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
-            this.gunaGroupBox1.ResumeLayout(false);
-            this.gunaGroupBox1.PerformLayout();
+            this.groupBox_Form.ResumeLayout(false);
+            this.groupBox_Form.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -341,7 +343,7 @@ namespace Form_with_Listbox
 
         #endregion
 
-        private Guna.UI.WinForms.GunaGroupBox gunaGroupBox1;
+        private Guna.UI.WinForms.GunaGroupBox groupBox_Form;
         private Guna.UI.WinForms.GunaLabel gunaLabel1;
         private Guna.UI.WinForms.GunaLineTextBox txtBox_Name;
         private Guna.UI.WinForms.GunaLineTextBox txtBox_Surname;
@@ -354,9 +356,9 @@ namespace Form_with_Listbox
         private Guna.UI.WinForms.GunaAdvenceButton btn_Add;
         private Guna.UI.WinForms.GunaDateTimePicker dtPicker_BirthDate;
         private System.Windows.Forms.ListBox lstbox_User;
-        private System.Windows.Forms.TextBox textBox1;
-        private Guna.UI.WinForms.GunaAdvenceButton gunaAdvenceButton1;
-        private Guna.UI.WinForms.GunaAdvenceButton gunaAdvenceButton2;
+        private System.Windows.Forms.TextBox txtBox_FileName;
+        private Guna.UI.WinForms.GunaAdvenceButton btn_Load;
+        private Guna.UI.WinForms.GunaAdvenceButton btn_Save;
     }
 }
 

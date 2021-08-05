@@ -3,11 +3,14 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Newtonsoft.Json;
 
 namespace Form_with_Listbox
 {
@@ -27,71 +30,115 @@ namespace Form_with_Listbox
         {
            
             //lstbox_User.DataSource = users;
-            lstbox_User.SelectionMode = SelectionMode.MultiExtended;
+           // lstbox_User.SelectionMode = SelectionMode.MultiSimple;
             lstbox_User.DisplayMember = "Name";
-
-            Button buttonDynamic = new Button
-            {
-                Text = "Dynamic",
-                Visible = true,
-                BackColor = Color.Red
-            };
-
-           
-            buttonDynamic.Location = new Point(220,300);
-
-            this.Controls.Add(buttonDynamic);
         }
 
         private void btn_Add_Click(object sender, EventArgs e)
         {
-            User user = new User();
-            if(string.IsNullOrWhiteSpace(txtBox_Name.Text)|| string.IsNullOrWhiteSpace(txtBox_Surname.Text)||
-                string.IsNullOrWhiteSpace(txtBox_Email.Text) || string.IsNullOrWhiteSpace(txtBox_Phone.Text))
+           
+            if (btn_Add.Text == "Add")
             {
-                MessageBox.Show("Please fill all of the cridentials!!!");
+                User user = new User();
+                //if (!Regex.IsMatch(txtBox_Email.Text, @"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$"))
+                //{
+                //    MessageBox.Show("Valid Email");
+                //    txtBox_Email.Text = "";
+                //}
+                if (string.IsNullOrWhiteSpace(txtBox_Name.Text) || string.IsNullOrWhiteSpace(txtBox_Surname.Text) ||
+                    string.IsNullOrWhiteSpace(txtBox_Email.Text) || string.IsNullOrWhiteSpace(txtBox_Phone.Text))
+                {
+                    MessageBox.Show("Please fill all of the cridentials!!!");
+                }
+                else
+                {
+                    user.Name = txtBox_Name.Text;
+                    user.Surname = txtBox_Surname.Text;
+                    user.Email = txtBox_Email.Text;
+                    user.Phone = txtBox_Phone.Text;
+                    user.BirthDate = dtPicker_BirthDate.Value;
+                    lstbox_User.Items.Add(user);
+                    users.Add(user);
+                   
+                }
             }
-            else
+            else if (btn_Add.Text == "Change")
             {
-                user.Name = txtBox_Name.Text;
-                user.Surname = txtBox_Surname.Text;
-                user.Email = txtBox_Email.Text;
-                user.Phone = txtBox_Phone.Text;
-                user.BirthDate = dtPicker_BirthDate.Value;
-                lstbox_User.Items.Add(user);
-                users.Add(user);
+                MessageBox.Show("Aa");
+                int index = lstbox_User.SelectedIndex;
+                    (lstbox_User.SelectedItem as User).Name = txtBox_Name.Text;
+                    (lstbox_User.SelectedItem as User).Surname = txtBox_Surname.Text;
+                    (lstbox_User.SelectedItem as User).Email = txtBox_Email.Text;
+                    (lstbox_User.SelectedItem as User).Phone = txtBox_Phone.Text;
+                MessageBox.Show(lstbox_User.Items[0].ToString());
+                btn_Add.Text = "Add";
+               
             }
         }
         
         private void lstbox_User_SelectedIndexChanged(object sender, EventArgs e)
         {
-           
             btn_Add.Text = "Change";
-            btn_Add.Dispose();
-            Button buttonDynamic = new Button
-            {
-                Text = "Dynamic",
-                Visible = true,
-                Enabled=true,
-                BackColor = Color.Red,
-               
-            };
-            buttonDynamic.Location = new Point(1, 1);
-            this.Controls.Add(buttonDynamic);
+            User user = lstbox_User.SelectedItem as User;
+            txtBox_Name.Text = user.Name;
+            txtBox_Surname.Text = user.Surname;
+            txtBox_Email.Text = user.Email;
+            txtBox_Phone.Text = user.Phone;
 
-            //Button btn_Change = 
-            btn_Add.Click += Btn_Add_Click;
+            
         }
 
-        private void Btn_Add_Click(object sender, EventArgs e)
+        //private void txtBox_Name_MouseClick(object sender, MouseEventArgs e)
+        //{
+
+        //}
+
+        //private void txtBox_Name_Click(object sender, EventArgs e)
+        //{
+        //    btn_Add.Text = "Add";
+        //}
+
+        private void btn_Save_Click(object sender, EventArgs e)
         {
-            if (lstbox_User.SelectedItems.Count > 1)
+            btn_Add.Text = "Add";
+            
+            if (!string.IsNullOrWhiteSpace(txtBox_FileName.Text))
             {
-                MessageBox.Show("Please change one user cridentials");
+                List<User> users = new List<User>();
+                foreach (var item in lstbox_User.Items)
+                {
+                    users.Add(item as User);
+                }
+                var fileName = txtBox_FileName.Text + ".json";
+                File.WriteAllText(fileName, JsonConvert.SerializeObject(users, Formatting.Indented));
             }
             else
             {
-                MessageBox.Show("Aqqq abe");
+                MessageBox.Show("Please write file name before saved");
+            }
+        }
+
+        private void btn_Load_Click(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrWhiteSpace(txtBox_FileName.Text))
+            {
+                if (File.Exists(txtBox_FileName.Text + ".json"))
+                {
+                    var userText = File.ReadAllText(txtBox_FileName.Text+".json");
+                    List<User> loadUsers = JsonConvert.DeserializeObject<List<User>>(userText);
+                    foreach (var user in loadUsers)
+                    {
+                        lstbox_User.Items.Add(user);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("File is not found");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please write file name whicg file you want loaded");
             }
         }
     }
